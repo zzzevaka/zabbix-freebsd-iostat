@@ -20,10 +20,10 @@ zabbix_get -s box1.rmt.ru -k iostat.metric['<device name>',<parameter>]
 
 Items
 -----
-* r/s	   read	operations per second
-* w/s	   write operations per	second
-* kr/s	   kilobytes read per second
-* kw/s	   kilobytes write per second
-* qlen	   transactions	queue length
-* svc_t	   average duration of transactions, in	milliseconds
-* %b	   % of	time the device	had one	or more	outstanding transactions
+* r/s - read	operations per second
+* w/s - write operations per	second
+* kr/s - kilobytes read per second
+* kw/s - kilobytes write per second
+* qlen - transactions	queue length
+* svc_t - average duration of transactions, in	milliseconds
+* %b - % of	time the device	had one	or more	outstanding transactions
