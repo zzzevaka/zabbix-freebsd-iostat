@@ -13,9 +13,9 @@ Installation
 Testing
 -------
 ```
-zabbix_get -s box1.rmt.ru -k iostat.discovery
-zabbix_get -s box1.rmt.ru -k iostat.collect
-zabbix_get -s box1.rmt.ru -k iostat.metric['<device name>',<parameter>]
+zabbix_get -s hostname -k iostat.discovery
+zabbix_get -s hostname -k iostat.collect
+zabbix_get -s hostname -k iostat.metric['<device name>',<parameter>]
 ```
 
 Items
