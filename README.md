@@ -5,10 +5,12 @@ Zabbix template for disks monitoring by iostat.
 
 Installation
 ------------
-1. Copy iostat.conf and scripts to a directory for zabbix extensions. For example "/usr/local/zabbix/zabbix_extrensions".
-2. Make sure the scripts can be executed
-3. Add a line to zabbix_agentd.conf. For example "Include=/usr/local/zabbix-2.4.4/zabbix_extensions/"
-4. Import iostat-template.xml as zabbix template.
+1. Copy iostat.conf to a directory /usr/local/zabbix/etc/zabbix_agentd.conf.d
+2. Copy iostat.conf and scripts to a directory /usr/local/zabbix/libexec/zabbix-extensions
+3. Make sure the scripts can be executed.
+4. Add a line to zabbix_agentd.conf: "Include=/usr/local/zabbix/etc/zabbix_agentd.conf.d/*.conf".
+5. 
+5. Import iostat-template.xml as zabbix template.
 
 Testing
 -------
