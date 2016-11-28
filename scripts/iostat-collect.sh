@@ -1,24 +1,17 @@
-#!/usr/bin/env bash
-# script for FreeBSD iostat monitoring
-# collecting iostat info
-
+#!/bin/sh
+# Description: Script for iostat monitoring
+# Author: Epikhin Mikhail michael@nomanlab.org
+# Revision 1: Lesovsky A.V. lesovsky@gmail.com
+# Revision 2 (For FreeBSD): Kuznetsov E.G. evgen_kuznetsov@yahoo.com
 SECONDS=$2
 TOFILE=$1
 IOSTAT="/usr/sbin/iostat"
+if [ $# -lt 2 ]; then
+    echo "FATAL: some parameters not specified"
+    exit 1
+fi
 
-[[ $# -lt 2 ]] && { echo "FATAL: some parameters not specified"; exit 1; }
+(DISK=$(${IOSTAT} -x -w 1 -t da -c ${SECONDS} | awk 'BEGIN {check=0;block=0;} {if(check==1 && $1=="extended"){check=0}if(check==1 && $1!="" && block>1){print $0}if($1=="device"){check=1;block=block+1;}}' | tr '\n' '|'); echo ${DISK} | tr '|' '\n' > ${TOFILE})&
 
-$IOSTAT -x 1 2 | awk '
-    BEGIN {cnt = 0}
-    {
-        if ($1~/extended|device/) {
-            cnt+=0.5
-        }
-        else if (cnt == 1) {
-                printf "%s total\n", $0
-        }
-        else {
-                print $0
-        }
-        }' > $TOFILE
 echo 0
+
