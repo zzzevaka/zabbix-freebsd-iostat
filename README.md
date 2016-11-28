@@ -9,7 +9,6 @@ Installation
 2. Copy iostat.conf and scripts to a directory /usr/local/zabbix/libexec/zabbix-extensions
 3. Make sure the scripts can be executed.
 4. Add a line to zabbix_agentd.conf: "Include=/usr/local/zabbix/etc/zabbix_agentd.conf.d/*.conf".
-5. 
 5. Import iostat-template.xml as zabbix template.
 
 Testing
